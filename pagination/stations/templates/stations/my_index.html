@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Street</th>
+                <th>District</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for station in bus_stations %}
+                <tr>
+                    <td>{{ station.Name }}</td>
+                    <td>{{ station.Street }}</td>
+                    <td>{{ station.District }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+</body>
+</html>

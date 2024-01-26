@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ name }}</title>
+</head>
+<body>
+<h3>{{ name }} for {{ count }} person(s)</h3>
+<ol>{% for ingredient, amount in recipe.items %}
+    <li>{{ ingredient }}: {{ amount }}</li>
+{% endfor %}</ol>
+<br>
+<br>
+<a href="/">Back to list of recipes</a>
+</body>
+</html>
