@@ -17,6 +17,12 @@ DATA = {
         'сыр, ломтик': 1,
         'помидор, ломтик': 1,
     },
+    'salad': {
+        'посидор, шт.': 1,
+        'огурец, шт.': 1,
+        'лук, шт.': 0.5,
+        'сметана, ложка.': 1,
+    },
     # можете добавить свои рецепты ;)
 }
 
@@ -28,58 +34,34 @@ def index(request):
     return render(request, 'index.html', context)
 
 
-def omlet(request):
+def dish_view(request, dish):
     count = int(request.GET.get('servings', 1))
-    if count > 1:
-        for k, v in DATA['omlet'].items():
-            DATA['pasta'][k] = v*count
+    # name = request.GET.get('name', '')
+    # if count > 1:
+    #     for k, v in DATA[].items():
+    #         DATA['pasta'][k] = v*count
+    # if count > 1:
+    #     for k, v in DATA['omlet'].items():
+    #         DATA['pasta'][k] = v*count
     context = {
-        'recipe': DATA['omlet'],
+        'recipe': DATA[dish],
         "count": count,
-        'name': 'omlet'
+        'name': dish
     }
     return render(request, 'recipe.html', context)
-
-
-def pasta(request):
-    count = int(request.GET.get('servings', 1))
-    if count > 1:
-        for k, v in DATA['pasta'].items():
-            DATA['pasta'][k] = v*count
-    context = {
-        'recipe': DATA['pasta'],
-        "count": count,
-        'name': 'pasta'
-    }
-    return render(request, 'recipe.html', context)
-
-
-def buter(request):
-    count = int(request.GET.get('servings', 1))
-    if count > 1:
-        for k, v in DATA['buter'].items():
-            DATA['pasta'][k] = v*count
-    context = {
-        'recipe': DATA['buter'],
-        "count": count,
-        'name': 'buter'
-    }
-    return render(request, 'recipe.html', context)
-
-
-def recipe(request, dish):
-    count = int(request.GET.get('servings', 1))
-    context = {}
-    if dish in DATA:
-        context = DATA[dish]
-    return render(request, 'index.html', context)
-    # return HttpResponse(f"omlet for {count} person(s)")
-# Напишите ваш обработчик. Используйте DATA как источник данных
-# Результат - render(request, 'calculator/index.html', context)
-# В качестве контекста должен быть передан словарь с рецептом:
-# context = {
-#   'recipe': {
-#     'ингредиент1': количество1,
-#     'ингредиент2': количество2,
-#   }
-# }
+# def recipe(request, dish):
+#     count = int(request.GET.get('servings', 1))
+#     context = {}
+#     if dish in DATA:
+#         context = DATA[dish]
+#     return render(request, 'index.html', context)
+#     # return HttpResponse(f"omlet for {count} person(s)")
+# # Напишите ваш обработчик. Используйте DATA как источник данных
+# # Результат - render(request, 'calculator/index.html', context)
+# # В качестве контекста должен быть передан словарь с рецептом:
+# # context = {
+# #   'recipe': {
+# #     'ингредиент1': количество1,
+# #     'ингредиент2': количество2,
+# #   }
+# # }

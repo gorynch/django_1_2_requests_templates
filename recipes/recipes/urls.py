@@ -20,8 +20,9 @@ from calculator import views
 
 urlpatterns = [
     path('', views.index),
-    path('pasta/', views.pasta),
-    path('omlet/', views.omlet),
-    path('buter/', views.buter),
+    path('<dish>/', views.dish_view, name='dish'),
+    # path('pasta/', views.pasta),
+    # path('omlet/', views.omlet),
+    # path('buter/', views.buter),
     # здесь зарегистрируйте вашу view-функцию
 ]
